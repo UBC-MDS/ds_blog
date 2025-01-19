@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-4f1f410457c5b47524fe6c8b1d3f8ba2"}, "mark": {"type": "rect"}, "encoding": {"color": {"field": "Correlation", "scale": {"scheme": "viridis"}, "type": "quantitative"}, "x": {"field": "Variable 1", "type": "ordinal"}, "y": {"field": "Variable 2", "type": "ordinal"}}, "title": "Correlation Heatmap", "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-4f1f410457c5b47524fe6c8b1d3f8ba2": [{"Variable 1": "PassengerId", "Variable 2": "Survived", "Correlation": -0.0050283202549977}, {"Variable 1": "PassengerId", "Variable 2": "Pclass", "Correlation": -0.035329847643583684}, {"Variable 1": "PassengerId", "Variable 2": "Age", "Correlation": 0.03131855337431843}, {"Variable 1": "PassengerId", "Variable 2": "SibSp", "Correlation": -0.05768589722981093}, {"Variable 1": "PassengerId", "Variable 2": "Parch", "Correlation": -0.001656578726454549}, {"Variable 1": "PassengerId", "Variable 2": "Fare", "Correlation": 0.012703244536207959}, {"Variable 1": "Survived", "Variable 2": "PassengerId", "Correlation": -0.0050283202549977}, {"Variable 1": "Survived", "Variable 2": "Pclass", "Correlation": -0.33554885935682505}, {"Variable 1": "Survived", "Variable 2": "Age", "Correlation": -0.0698217076789191}, {"Variable 1": "Survived", "Variable 2": "SibSp", "Correlation": -0.03403999879674893}, {"Variable 1": "Survived", "Variable 2": "Parch", "Correlation": 0.08315078366620224}, {"Variable 1": "Survived", "Variable 2": "Fare", "Correlation": 0.2552904613046992}, {"Variable 1": "Pclass", "Variable 2": "PassengerId", "Correlation": -0.035329847643583684}, {"Variable 1": "Pclass", "Variable 2": "Survived", "Correlation": -0.33554885935682505}, {"Variable 1": "Pclass", "Variable 2": "Age", "Correlation": -0.3365121763862815}, {"Variable 1": "Pclass", "Variable 2": "SibSp", "Correlation": 0.0816556213479137}, {"Variable 1": "Pclass", "Variable 2": "Parch", "Correlation": 0.01682449383776425}, {"Variable 1": "Pclass", "Variable 2": "Fare", "Correlation": -0.5481932852366449}, {"Variable 1": "Age", "Variable 2": "PassengerId", "Correlation": 0.03131855337431843}, {"Variable 1": "Age", "Variable 2": "Survived", "Correlation": -0.0698217076789191}, {"Variable 1": "Age", "Variable 2": "Pclass", "Correlation": -0.3365121763862815}, {"Variable 1": "Age", "Variable 2": "SibSp", "Correlation": -0.23254340935122556}, {"Variable 1": "Age", "Variable 2": "Parch", "Correlation": -0.1714850795047853}, {"Variable 1": "Age", "Variable 2": "Fare", "Correlation": 0.09370714330015849}, {"Variable 1": "SibSp", "Variable 2": "PassengerId", "Correlation": -0.05768589722981093}, {"Variable 1": "SibSp", "Variable 2": "Survived", "Correlation": -0.03403999879674893}, {"Variable 1": "SibSp", "Variable 2": "Pclass", "Correlation": 0.0816556213479137}, {"Variable 1": "SibSp", "Variable 2": "Age", "Correlation": -0.23254340935122556}, {"Variable 1": "SibSp", "Variable 2": "Parch", "Correlation": 0.4145416380997264}, {"Variable 1": "SibSp", "Variable 2": "Fare", "Correlation": 0.16088685492565172}, {"Variable 1": "Parch", "Variable 2": "PassengerId", "Correlation": -0.001656578726454549}, {"Variable 1": "Parch", "Variable 2": "Survived", "Correlation": 0.08315078366620224}, {"Variable 1": "Parch", "Variable 2": "Pclass", "Correlation": 0.01682449383776425}, {"Variable 1": "Parch", "Variable 2": "Age", "Correlation": -0.1714850795047853}, {"Variable 1": "Parch", "Variable 2": "SibSp", "Correlation": 0.4145416380997264}, {"Variable 1": "Parch", "Variable 2": "Fare", "Correlation": 0.21753204448353225}, {"Variable 1": "Fare", "Variable 2": "PassengerId", "Correlation": 0.012703244536207959}, {"Variable 1": "Fare", "Variable 2": "Survived", "Correlation": 0.2552904613046992}, {"Variable 1": "Fare", "Variable 2": "Pclass", "Correlation": -0.5481932852366449}, {"Variable 1": "Fare", "Variable 2": "Age", "Correlation": 0.09370714330015849}, {"Variable 1": "Fare", "Variable 2": "SibSp", "Correlation": 0.16088685492565172}, {"Variable 1": "Fare", "Variable 2": "Parch", "Correlation": 0.21753204448353225}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

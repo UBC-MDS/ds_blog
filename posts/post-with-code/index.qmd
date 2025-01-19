@@ -1,9 +1,151 @@
 ---
-title: "Post With Code"
-author: "Harlow Malloc"
-date: "2025-01-18"
-categories: [news, code, analysis]
-image: "image.jpg"
+title: "A Beginner’s Guide to Exploratory Data Analysis (EDA)"
+author: "Eugene Jinxiong You"
+date: "2025-01-15"
+categories: [data science, code, analysis]
 ---
 
-This is a post with executable code.
+# Introduction
+
+Exploratory Data Analysis (EDA) is one of the most crucial steps in any data science project. It serves as the foundation for understanding your dataset, uncovering patterns, and identifying potential issues. Without a thorough EDA, building effective models can be a shot in the dark. This guide will walk you through the key steps of EDA with practical examples, actionable insights, and Python code that you can use for your projects. Whether you're a beginner or an intermediate data scientist, this tutorial will equip you with the knowledge to perform meaningful EDA.
+
+## Why is EDA Important?
+
+EDA is not just about cleaning your data; it’s about understanding it. Here are some reasons why EDA is indispensable:
+
+1. **Data Quality Assessment**: EDA helps you identify missing values, outliers, and inconsistencies in your dataset. Addressing these issues early can save you time during the modeling phase.
+2. **Hypothesis Generation**: By exploring your data, you can generate hypotheses about relationships between variables, which can inform your choice of models and features.
+3. **Pattern Recognition**: Visualizing data can reveal trends and patterns that are not immediately obvious from raw numbers.
+4. **Feature Engineering**: EDA guides the creation of new features that capture important aspects of your data.
+
+# Steps in EDA
+
+Let’s break down the process of EDA into manageable steps. Each step will include code snippets to demonstrate how you can perform it in Python using popular libraries.
+
+## 1. Data Cleaning
+
+### Handling Missing Values
+
+Data cleaning is often the first step in any analysis. Missing values can distort your results if not handled properly.
+
+
+```{python}
+import pandas as pd
+
+# Load a sample dataset
+url = 'https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv'
+data = pd.read_csv(url)
+
+# Check for missing values
+missing_values = data.isnull().sum()
+print(missing_values[missing_values > 0])
+
+# Fill missing Age values with the median
+data['Age'] = data['Age'].fillna(data['Age'].median())
+
+# Drop rows with missing Embarked values
+data = data.dropna(subset=['Embarked'])
+```
+
+Cleaning your data ensures that subsequent analyses are accurate and reliable. Addressing missing values is just one aspect; you should also check for duplicate rows and inconsistent entries.
+
+## 2. Univariate Analysis
+
+Univariate analysis focuses on understanding individual variables. This step helps you grasp the distribution and characteristics of each feature.
+
+### Distribution of Age
+
+Let’s examine the distribution of passenger ages in the Titanic dataset:
+
+```{python}
+import altair as alt
+
+# Create a histogram for Age
+distribution_chart = alt.Chart(data).mark_bar().encode(
+    alt.X('Age:Q', bin=alt.Bin(maxbins=30), title='Age'),
+    alt.Y('count()', title='Frequency')
+).properties(
+    title='Age Distribution'
+)
+
+distribution_chart.display()
+```
+
+A histogram like this can reveal whether the data is skewed, bimodal, or uniform. This information can guide transformations like normalization or binning.
+
+## 3. Multivariate Analysis
+
+Multivariate analysis explores relationships between two or more variables. This step helps you understand how different features interact with each other.
+
+### Relationship Between Fare and Survival
+
+Visualizing relationships between variables can help identify trends and group differences:
+
+```{python}
+# Create a boxplot for Fare vs. Survival
+boxplot_chart = alt.Chart(data).mark_boxplot().encode(
+    alt.X('Survived:O', title='Survived'),
+    alt.Y('Fare:Q', title='Fare')
+).properties(
+    title='Fare vs. Survival'
+)
+
+boxplot_chart.display()
+```
+This boxplot shows how ticket fare varies between passengers who survived and those who didn’t. Such insights can inform feature selection and engineering.
+
+## 4. Correlation Analysis
+
+Correlation analysis quantifies the strength of relationships between numeric variables. It’s especially useful for feature selection.
+
+### Correlation Heatmap
+
+```{python}
+import numpy as np
+
+# Ensure only numeric columns are used for correlation
+numeric_data = data.select_dtypes(include=['number'])
+
+# Compute correlation matrix
+correlation_matrix = numeric_data.corr().stack().reset_index()
+correlation_matrix.columns = ['Variable 1', 'Variable 2', 'Correlation']
+
+# Filter out duplicate correlations
+correlation_matrix = correlation_matrix[correlation_matrix['Variable 1'] != correlation_matrix['Variable 2']]
+
+# Create heatmap
+heatmap_chart = alt.Chart(correlation_matrix).mark_rect().encode(
+    x='Variable 1:O',
+    y='Variable 2:O',
+    color=alt.Color('Correlation:Q', scale=alt.Scale(scheme='viridis'))
+).properties(
+    title='Correlation Heatmap'
+)
+
+heatmap_chart.display()
+```
+
+Heatmaps make it easy to spot highly correlated features, which could lead to multicollinearity issues in your models.
+
+# Best Practices for EDA
+
+1. **Start Broad**: Begin with an overview of your dataset—summary statistics, shapes, and data types.
+2. **Use Visualizations**: Plots often reveal patterns that numbers alone cannot.
+3. **Iterate**: EDA is not a one-time task. Revisit your analysis as new questions arise.
+4. **Document Findings**: Keep a record of anomalies, trends, and hypotheses.
+
+# Common Pitfalls
+
+- **Overlooking Missing Data**: Ignoring missing values can lead to biased results.
+- **Overanalyzing Small Samples**: Be cautious with datasets that have few observations.
+- **Focusing Solely on Visuals**: Visualizations should complement, not replace, statistical analysis.
+
+# Conclusion
+
+EDA is an indispensable part of the data science process. It helps you understand your data, uncover valuable insights, and prepare for effective modeling. By following the steps outlined in this guide, you’ll be well-equipped to perform EDA on any dataset. Remember, the goal of EDA is not just to analyze but to ask the right questions that lead to actionable insights.
+
+Take the time to practice these techniques on real-world datasets. Happy analyzing!
+
+---
+
+Would you like to continue exploring this topic? Share your thoughts and findings in the comments below!
