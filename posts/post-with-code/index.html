@@ -6,9 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Your Name">
+<meta name="author" content="Eugene Jinxiong You">
+<meta name="dcterms.date" content="2025-01-15">
 
-<title>A Beginner’s Guide to Exploratory Data Analysis (EDA) – Blog</title>
+<title>A Beginner’s Guide to Exploratory Data Analysis (EDA) – Eugene’s Blog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -120,7 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">Blog</span>
+    <span class="navbar-title">Eugene’s Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -134,12 +135,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/jinxyou"> <i class="bi bi-github" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com"> <i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://linkedin.com/in/jinxyou"> <i class="bi bi-linkedin" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -155,7 +156,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">A Beginner’s Guide to Exploratory Data Analysis (EDA)</h1>
-                      </div>
+                                <div class="quarto-categories">
+                <div class="quarto-category">data science</div>
+                <div class="quarto-category">code</div>
+                <div class="quarto-category">analysis</div>
+              </div>
+                  </div>
   </div>
     
   
@@ -164,14 +170,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Your Name </p>
+               <p>Eugene Jinxiong You </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">Invalid Date</p>
+        <p class="date">January 15, 2025</p>
       </div>
     </div>
     
@@ -212,7 +218,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="handling-missing-values" class="level3">
 <h3 class="anchored" data-anchor-id="handling-missing-values">Handling Missing Values</h3>
 <p>Data cleaning is often the first step in any analysis. Missing values can distort your results if not handled properly.</p>
-<div id="527a6709" class="cell" data-execution_count="1">
+<div id="45f205cf" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load a sample dataset</span></span>
@@ -244,7 +250,7 @@ dtype: int64</code></pre>
 <section id="distribution-of-age" class="level3">
 <h3 class="anchored" data-anchor-id="distribution-of-age">Distribution of Age</h3>
 <p>Let’s examine the distribution of passenger ages in the Titanic dataset:</p>
-<div id="2db5c3af" class="cell" data-execution_count="2">
+<div id="45dfff13" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a histogram for Age</span></span>
@@ -259,23 +265,23 @@ dtype: int64</code></pre>
 <div class="cell-output cell-output-display">
 
 <style>
-  #altair-viz-7744c8391cfe496eaefa7f328afaedd1.vega-embed {
+  #altair-viz-e2f418ccaa2d4deaa9bb3ac9a0b25c50.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-7744c8391cfe496eaefa7f328afaedd1.vega-embed details,
-  #altair-viz-7744c8391cfe496eaefa7f328afaedd1.vega-embed details summary {
+  #altair-viz-e2f418ccaa2d4deaa9bb3ac9a0b25c50.vega-embed details,
+  #altair-viz-e2f418ccaa2d4deaa9bb3ac9a0b25c50.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-7744c8391cfe496eaefa7f328afaedd1"></div>
+<div id="altair-viz-e2f418ccaa2d4deaa9bb3ac9a0b25c50"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-7744c8391cfe496eaefa7f328afaedd1") {
-      outputDiv = document.getElementById("altair-viz-7744c8391cfe496eaefa7f328afaedd1");
+    if (outputDiv.id !== "altair-viz-e2f418ccaa2d4deaa9bb3ac9a0b25c50") {
+      outputDiv = document.getElementById("altair-viz-e2f418ccaa2d4deaa9bb3ac9a0b25c50");
     }
 
     const paths = {
@@ -336,7 +342,7 @@ dtype: int64</code></pre>
 <section id="relationship-between-fare-and-survival" class="level3">
 <h3 class="anchored" data-anchor-id="relationship-between-fare-and-survival">Relationship Between Fare and Survival</h3>
 <p>Visualizing relationships between variables can help identify trends and group differences:</p>
-<div id="30b3666a" class="cell" data-execution_count="3">
+<div id="898929b8" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a boxplot for Fare vs. Survival</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>boxplot_chart <span class="op">=</span> alt.Chart(data).mark_boxplot().encode(</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    alt.X(<span class="st">'Survived:O'</span>, title<span class="op">=</span><span class="st">'Survived'</span>),</span>
@@ -349,23 +355,23 @@ dtype: int64</code></pre>
 <div class="cell-output cell-output-display">
 
 <style>
-  #altair-viz-bbb3a107f1f34bbd9d34bd646a3a25f3.vega-embed {
+  #altair-viz-5e406b189bb941f7bdc5e7d29f88b756.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-bbb3a107f1f34bbd9d34bd646a3a25f3.vega-embed details,
-  #altair-viz-bbb3a107f1f34bbd9d34bd646a3a25f3.vega-embed details summary {
+  #altair-viz-5e406b189bb941f7bdc5e7d29f88b756.vega-embed details,
+  #altair-viz-5e406b189bb941f7bdc5e7d29f88b756.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-bbb3a107f1f34bbd9d34bd646a3a25f3"></div>
+<div id="altair-viz-5e406b189bb941f7bdc5e7d29f88b756"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-bbb3a107f1f34bbd9d34bd646a3a25f3") {
-      outputDiv = document.getElementById("altair-viz-bbb3a107f1f34bbd9d34bd646a3a25f3");
+    if (outputDiv.id !== "altair-viz-5e406b189bb941f7bdc5e7d29f88b756") {
+      outputDiv = document.getElementById("altair-viz-5e406b189bb941f7bdc5e7d29f88b756");
     }
 
     const paths = {
@@ -425,7 +431,7 @@ dtype: int64</code></pre>
 <p>Correlation analysis quantifies the strength of relationships between numeric variables. It’s especially useful for feature selection.</p>
 <section id="correlation-heatmap" class="level3">
 <h3 class="anchored" data-anchor-id="correlation-heatmap">Correlation Heatmap</h3>
-<div id="4e8c8581" class="cell" data-execution_count="4">
+<div id="a2dbdaf5" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure only numeric columns are used for correlation</span></span>
@@ -451,23 +457,23 @@ dtype: int64</code></pre>
 <div class="cell-output cell-output-display">
 
 <style>
-  #altair-viz-deaaffb4fa284f729e42f08299d864fc.vega-embed {
+  #altair-viz-1843331f6bfa4eb59cddd5c08bb72e24.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-deaaffb4fa284f729e42f08299d864fc.vega-embed details,
-  #altair-viz-deaaffb4fa284f729e42f08299d864fc.vega-embed details summary {
+  #altair-viz-1843331f6bfa4eb59cddd5c08bb72e24.vega-embed details,
+  #altair-viz-1843331f6bfa4eb59cddd5c08bb72e24.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-deaaffb4fa284f729e42f08299d864fc"></div>
+<div id="altair-viz-1843331f6bfa4eb59cddd5c08bb72e24"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-deaaffb4fa284f729e42f08299d864fc") {
-      outputDiv = document.getElementById("altair-viz-deaaffb4fa284f729e42f08299d864fc");
+    if (outputDiv.id !== "altair-viz-1843331f6bfa4eb59cddd5c08bb72e24") {
+      outputDiv = document.getElementById("altair-viz-1843331f6bfa4eb59cddd5c08bb72e24");
     }
 
     const paths = {
