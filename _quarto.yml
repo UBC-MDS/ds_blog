@@ -3,14 +3,14 @@ project:
   output-dir: docs
 
 website:
-  title: "Blog"
+  title: "Eugene's Blog"
   navbar:
     right:
       - about.qmd
       - icon: github
-        href: https://github.com/
-      - icon: twitter
-        href: https://twitter.com
+        href: https://github.com/jinxyou
+      - icon: linkedin
+        href: https://linkedin.com/in/jinxyou
 format:
   html:
     theme: cosmo

@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "Blog",
     "section": "",
-    "text": "Post With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nJan 18, 2025\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nJan 15, 2025\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "A Beginner’s Guide to Exploratory Data Analysis (EDA)\n\n\n\n\n\n\ndata science\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nJan 15, 2025\n\n\nEugene Jinxiong You\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nJan 15, 2025\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -23,8 +23,43 @@
   {
     "objectID": "posts/post-with-code/index.html",
     "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
+    "title": "A Beginner’s Guide to Exploratory Data Analysis (EDA)",
     "section": "",
-    "text": "This is a post with executable code."
+    "text": "Exploratory Data Analysis (EDA) is one of the most crucial steps in any data science project. It serves as the foundation for understanding your dataset, uncovering patterns, and identifying potential issues. Without a thorough EDA, building effective models can be a shot in the dark. This guide will walk you through the key steps of EDA with practical examples, actionable insights, and Python code that you can use for your projects. Whether you’re a beginner or an intermediate data scientist, this tutorial will equip you with the knowledge to perform meaningful EDA.\n\n\nEDA is not just about cleaning your data; it’s about understanding it. Here are some reasons why EDA is indispensable:\n\nData Quality Assessment: EDA helps you identify missing values, outliers, and inconsistencies in your dataset. Addressing these issues early can save you time during the modeling phase.\nHypothesis Generation: By exploring your data, you can generate hypotheses about relationships between variables, which can inform your choice of models and features.\nPattern Recognition: Visualizing data can reveal trends and patterns that are not immediately obvious from raw numbers.\nFeature Engineering: EDA guides the creation of new features that capture important aspects of your data."
+  },
+  {
+    "objectID": "posts/post-with-code/index.html#why-is-eda-important",
+    "href": "posts/post-with-code/index.html#why-is-eda-important",
+    "title": "A Beginner’s Guide to Exploratory Data Analysis (EDA)",
+    "section": "",
+    "text": "EDA is not just about cleaning your data; it’s about understanding it. Here are some reasons why EDA is indispensable:\n\nData Quality Assessment: EDA helps you identify missing values, outliers, and inconsistencies in your dataset. Addressing these issues early can save you time during the modeling phase.\nHypothesis Generation: By exploring your data, you can generate hypotheses about relationships between variables, which can inform your choice of models and features.\nPattern Recognition: Visualizing data can reveal trends and patterns that are not immediately obvious from raw numbers.\nFeature Engineering: EDA guides the creation of new features that capture important aspects of your data."
+  },
+  {
+    "objectID": "posts/post-with-code/index.html#data-cleaning",
+    "href": "posts/post-with-code/index.html#data-cleaning",
+    "title": "A Beginner’s Guide to Exploratory Data Analysis (EDA)",
+    "section": "1. Data Cleaning",
+    "text": "1. Data Cleaning\n\nHandling Missing Values\nData cleaning is often the first step in any analysis. Missing values can distort your results if not handled properly.\n\nimport pandas as pd\n\n# Load a sample dataset\nurl = 'https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv'\ndata = pd.read_csv(url)\n\n# Check for missing values\nmissing_values = data.isnull().sum()\nprint(missing_values[missing_values &gt; 0])\n\n# Fill missing Age values with the median\ndata['Age'] = data['Age'].fillna(data['Age'].median())\n\n# Drop rows with missing Embarked values\ndata = data.dropna(subset=['Embarked'])\n\nAge         177\nCabin       687\nEmbarked      2\ndtype: int64\n\n\nCleaning your data ensures that subsequent analyses are accurate and reliable. Addressing missing values is just one aspect; you should also check for duplicate rows and inconsistent entries."
+  },
+  {
+    "objectID": "posts/post-with-code/index.html#univariate-analysis",
+    "href": "posts/post-with-code/index.html#univariate-analysis",
+    "title": "A Beginner’s Guide to Exploratory Data Analysis (EDA)",
+    "section": "2. Univariate Analysis",
+    "text": "2. Univariate Analysis\nUnivariate analysis focuses on understanding individual variables. This step helps you grasp the distribution and characteristics of each feature.\n\nDistribution of Age\nLet’s examine the distribution of passenger ages in the Titanic dataset:\n\nimport altair as alt\n\n# Create a histogram for Age\ndistribution_chart = alt.Chart(data).mark_bar().encode(\n    alt.X('Age:Q', bin=alt.Bin(maxbins=30), title='Age'),\n    alt.Y('count()', title='Frequency')\n).properties(\n    title='Age Distribution'\n)\n\ndistribution_chart.display()\n\n\n\n\n\n\n\nA histogram like this can reveal whether the data is skewed, bimodal, or uniform. This information can guide transformations like normalization or binning."
+  },
+  {
+    "objectID": "posts/post-with-code/index.html#multivariate-analysis",
+    "href": "posts/post-with-code/index.html#multivariate-analysis",
+    "title": "A Beginner’s Guide to Exploratory Data Analysis (EDA)",
+    "section": "3. Multivariate Analysis",
+    "text": "3. Multivariate Analysis\nMultivariate analysis explores relationships between two or more variables. This step helps you understand how different features interact with each other.\n\nRelationship Between Fare and Survival\nVisualizing relationships between variables can help identify trends and group differences:\n\n# Create a boxplot for Fare vs. Survival\nboxplot_chart = alt.Chart(data).mark_boxplot().encode(\n    alt.X('Survived:O', title='Survived'),\n    alt.Y('Fare:Q', title='Fare')\n).properties(\n    title='Fare vs. Survival'\n)\n\nboxplot_chart.display()\n\n\n\n\n\n\n\nThis boxplot shows how ticket fare varies between passengers who survived and those who didn’t. Such insights can inform feature selection and engineering."
+  },
+  {
+    "objectID": "posts/post-with-code/index.html#correlation-analysis",
+    "href": "posts/post-with-code/index.html#correlation-analysis",
+    "title": "A Beginner’s Guide to Exploratory Data Analysis (EDA)",
+    "section": "4. Correlation Analysis",
+    "text": "4. Correlation Analysis\nCorrelation analysis quantifies the strength of relationships between numeric variables. It’s especially useful for feature selection.\n\nCorrelation Heatmap\n\nimport numpy as np\n\n# Ensure only numeric columns are used for correlation\nnumeric_data = data.select_dtypes(include=['number'])\n\n# Compute correlation matrix\ncorrelation_matrix = numeric_data.corr().stack().reset_index()\ncorrelation_matrix.columns = ['Variable 1', 'Variable 2', 'Correlation']\n\n# Filter out duplicate correlations\ncorrelation_matrix = correlation_matrix[correlation_matrix['Variable 1'] != correlation_matrix['Variable 2']]\n\n# Create heatmap\nheatmap_chart = alt.Chart(correlation_matrix).mark_rect().encode(\n    x='Variable 1:O',\n    y='Variable 2:O',\n    color=alt.Color('Correlation:Q', scale=alt.Scale(scheme='viridis'))\n).properties(\n    title='Correlation Heatmap'\n)\n\nheatmap_chart.display()\n\n\n\n\n\n\n\nHeatmaps make it easy to spot highly correlated features, which could lead to multicollinearity issues in your models."
   }
 ]
